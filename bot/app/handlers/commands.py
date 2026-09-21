@@ -1,0 +1,22 @@
+from telegram import Update
+from telegram.ext import ContextTypes
+
+HELP_TEXT = (
+    "🤖 *Token Search Bot*\n\n"
+    "Gửi địa chỉ contract EVM bất kỳ, bot sẽ tra cứu và trả báo cáo.\n\n"
+    "Ví dụ:\n"
+    "`0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48`\n\n"
+    "Hoặc nhắn kèm text:\n"
+    "_\"Kiểm tra token này: 0xA0b86991...\"_\n\n"
+    "Hỗ trợ: Ethereum, BSC"
+)
+
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if update.message:
+        await update.message.reply_text(HELP_TEXT, parse_mode="Markdown")
+
+
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if update.message:
+        await update.message.reply_text(HELP_TEXT, parse_mode="Markdown")
