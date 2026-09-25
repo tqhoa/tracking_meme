@@ -27,7 +27,7 @@ def format_report(data: dict) -> str:
     chain_name = _CHAIN_NAMES.get(token.get("chain", ""), token.get("chain", ""))
     dex = token.get("dex") or "Unknown DEX"
     address = token.get("address", "")
-    short_addr = address[:6] + "..." + address[-4:] if len(address) > 10 else address
+    short_addr = address
 
     risk_level = analysis.get("risk_level", "MEDIUM")
     risk_emoji = _RISK_EMOJI.get(risk_level, "⚠️")
